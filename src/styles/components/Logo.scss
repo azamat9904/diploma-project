@@ -1,0 +1,68 @@
+@import "../libs/variables";
+
+.logo{
+
+    margin-right: 15px;
+    color: #fff;
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding-left: 45px;
+    position: relative;
+    transition: none;
+
+    @media (max-width: $md3 + px){
+        padding-left:0;
+    }
+
+    &__content{
+        @media (max-width: $md3 + px){
+            display: none;
+        }
+    }
+
+    @keyframes logoAnimation {
+        0% {
+            transform: rotateZ(0);
+        }
+        50%{
+            transform: rotateZ(5deg);
+        }
+        100%{
+            transform: rotateZ(0);
+        }
+    }
+
+    &:hover{
+        text-decoration: none;
+        animation: logoAnimation .5s;
+    }
+
+    
+    &::before{
+        display: block;
+        position: absolute;
+        top:-35%;
+        left:0;
+        width: 35px;
+        height: 35px;
+        z-index: 100;
+        content: '';
+        background: url('../../assets/images/logo.png') top left no-repeat;
+        background-size: cover;
+
+        @media screen and (max-width: $md3 + px){
+            display: block;
+            position: static;
+        }
+    }
+    
+    span{
+        color: #9343f9;
+        display: inline-block;
+        margin-left: 5px;
+    }
+}

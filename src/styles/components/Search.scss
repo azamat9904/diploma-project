@@ -1,0 +1,29 @@
+@import "../libs/variables";
+
+.search{
+    
+    svg{
+        font-size: 20px;
+    }
+
+    span.ant-input-group input{
+        height: 32px;
+    }
+
+    span.ant-input-group{
+       @media(max-width: $md3 + px){
+            position: absolute;
+            left: 15px;
+            right:15px;
+            width: calc(100% - 30px);
+            z-index: 500;
+            top:11px;
+       }
+    }
+
+    span.search-icon{
+        svg{
+            color:#fff;
+        }
+    }
+}

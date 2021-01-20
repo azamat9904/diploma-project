@@ -2,6 +2,7 @@
 @import "./libs/null";
 @import '~antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
 body {
 	color: #000;
     font-size: 14px;
@@ -35,11 +36,11 @@ body {
 	flex: 1 1 auto;
 }
 
-.button{
+.mybutton{
     background: linear-gradient(135deg,#FD9A05,#7510F4);
     color:#fff;
     border: none;
-    ransition: all .5s;
+    transition: all .5s;
     
     
     &:hover, &:active, &:focus{
