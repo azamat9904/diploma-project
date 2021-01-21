@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
-import "../styles/components/Header.scss";
 import { Dropdown, Logo, Search } from './index';
+import "../styles/components/Header.scss";
 
 const dropdownElements = [
     {

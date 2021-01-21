@@ -1,0 +1,109 @@
+@import "../libs/variables";
+
+.introduction{
+    background: url('../../assets/images/hacker.jpg') center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: calc(100vh - 75px);
+    position: relative;
+
+    &__container{
+        position: relative;
+        top:49%;
+        width: 55%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        @media(max-width: 1130px){
+            width: 65%;
+        }
+
+        @media(max-width: 895px){
+            width: 75%;
+        }
+
+        @media(max-width: 777px){
+            width: 90%;
+        }
+
+        @media(max-width: 653px){
+            width: 100%;
+        }
+    }
+
+    &__content{
+        text-align: center;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(38, 35, 49, 0.74);;
+    }
+}
+
+.content-introduction{
+
+    &__title{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 39px;
+        line-height: 50px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 25px;
+
+        @media(max-width: 1130px){
+            font-size: 30px;
+        }
+
+        @media(max-width: $md4 + px){
+            font-size: 27px;
+        }
+
+        @media(max-width: 350px){
+            font-size: 25px;
+        }
+    }
+
+    &__text{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 172%;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 35px;
+
+        @media(max-width: 1130px){
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        @media(max-width: $md4 + px){
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width: 350px){
+            font-size: 10px;
+        }
+    }
+
+    button.mybutton{
+        @media(max-width: 600px){
+            height: 30px;
+            width: 120px;
+        }
+    }
+}
