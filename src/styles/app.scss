@@ -2,13 +2,19 @@
 @import "./libs/null";
 @import '~antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import "./pages/Auth.scss";
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
 
 body {
 	color: #000;
     font-size: 14px;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
-    
 	&._lock {
 		overflow: hidden;
 	}
@@ -21,7 +27,6 @@ body {
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 }
@@ -33,16 +38,23 @@ body {
 }
 
 .page {
-	flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .mybutton{
     background: linear-gradient(135deg,#FD9A05,#7510F4);
     color:#fff;
     border: none;
-    transition: all .5s;
-    
-    
+    transition: all .3s;
+    display: inline-flex;
+    text-decoration: none;
+    padding:9px 15px;
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+
     &:hover, &:active, &:focus{
         background: linear-gradient(135deg,#fd9a05e1,#7710f4e8);
         color:#fff;
@@ -58,5 +70,10 @@ body {
     &_lg{
         width: 150px;
         height: 35px;
+    }
+
+    &_rounded{
+        width: 100%;
+        border-radius: 20px;
     }
 }

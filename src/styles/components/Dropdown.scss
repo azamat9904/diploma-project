@@ -24,6 +24,8 @@
     }
 
     &__menu{
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
         top:150%;
         left:0;
@@ -32,6 +34,7 @@
         padding:7px 0;
         border:1px solid rgba(0,0,0,.1);
         z-index: 100;
+        transition: all .4s;
 
         @media (max-width: 395px) {
             top:100%;
@@ -39,6 +42,11 @@
             width: 96%;
             left:2%;
             right:2%;
+        }
+
+        &._active{
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -48,17 +56,23 @@
         text-transform: capitalize;
         cursor: pointer;
         
-        &:hover{
-            background-color: #7510F4;
-            color:#fff;
-        }
-        
-        &:hover #{$self}__link{
-            color:#fff;
+        @media(min-width: 992px) {
+            &:hover{
+                background-color: #7510F4;
+                color:#fff;
+            }
+            
+            &:hover #{$self}__link{
+                color:#fff;
+            }
         }
     }
 
     &__link{
         color:#000;
+    }
+
+    span.anticon.rotate svg{
+        transform: rotate(-180deg);
     }
 }

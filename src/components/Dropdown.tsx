@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { IDropdownElement } from '../types/interfaces';
+import classNames from 'classnames';
 import "../styles/components/Dropdown.scss";
 
 type Props = {
@@ -44,23 +45,22 @@ const Dropdown: FunctionComponent<Props> = ({
 
     return (
         <div className="dropdown" ref={dropdownRef}>
-            <span onClick={onDropdownClick} className="dropdown__title">{dropdownTitle} <DownOutlined /></span>
-            {
-                isOpen && <ul className="dropdown__menu">
-                    {
-                        dropdownElements.map((element, index) => (
-                            <li className="dropdown__item" key={index}>
-                                <a
-                                    href={element.href}
-                                    className="dropdown__link"
-                                >
-                                    {element.title}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            }
+            <span onClick={onDropdownClick} className="dropdown__title">{dropdownTitle} <DownOutlined className={classNames({ 'rotate': isOpen })} /></span>
+            <ul className={classNames("dropdown__menu", { "_active": isOpen })}>
+                {
+                    dropdownElements.map((element, index) => (
+                        <li className="dropdown__item" key={index}>
+                            <a
+                                href={element.href}
+                                className="dropdown__link"
+                            >
+                                {element.title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+
         </div>
     )
 }

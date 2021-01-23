@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { Dropdown, Logo, Search } from './index';
 import "../styles/components/Header.scss";
+import { Link } from 'react-router-dom';
 
 const dropdownElements = [
     {
@@ -32,8 +33,8 @@ const Header = () => {
                 </div>
                 <div className="header__right right-header">
                     <span className="right-header__icon"><Search /></span>
-                    <Button className="mybutton right-header__signup">Регистрация</Button>
-                    <Button className="mybutton right-header__signin">Войти</Button>
+                    <Link className="mybutton right-header__signup" to="/signup">Регистрация</Link>
+                    <Link className="mybutton right-header__signin" to="/signin">Войти</Link>
                 </div>
             </div>
         </header>

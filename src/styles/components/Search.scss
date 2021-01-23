@@ -1,7 +1,9 @@
 @import "../libs/variables";
 
 .search{
-    
+    display: flex;
+    align-items: center;
+
     svg{
         font-size: 20px;
     }
@@ -10,8 +12,19 @@
         height: 32px;
     }
 
-    span.ant-input-group{
-       @media(max-width: $md3 + px){
+    & .search-input{
+       opacity: 0;
+       transform: translateX(-120px);
+       visibility: hidden;
+       transition: all .4s;
+        
+        &._active{
+            opacity: 1;
+            transform: translateX(0);
+            visibility:visible;
+        }
+
+        @media(max-width: $md3 + px){
             position: absolute;
             left: 15px;
             right:15px;

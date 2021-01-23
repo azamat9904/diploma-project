@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
+import classNames from 'classnames';
 import "../styles/components/Search.scss";
 
 const Search = () => {
@@ -30,14 +31,15 @@ const Search = () => {
 
     return (
         <div className="search" ref={searchRef}>
+            <Input.Search
+                placeholder="Поиск"
+                onSearch={() => { }}
+                className={classNames("search-input", { '_active': showSearch })}
+            />
             {
-                showSearch ? <Input.Search
-                    placeholder="Поиск"
-                    onSearch={() => { }}
-                    style={{ width: '100%' }}
-                /> : <SearchOutlined
-                        className="search-icon"
-                        onClick={showSearchHandler} />
+                !showSearch && <SearchOutlined
+                    className="search-icon"
+                    onClick={showSearchHandler} />
             }
         </div>
     )
