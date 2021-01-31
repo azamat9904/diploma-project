@@ -14,23 +14,27 @@
 
     & .search-input{
        opacity: 0;
-       transform: translateX(-120px);
        visibility: hidden;
        transition: all .4s;
-        
+       max-width: 0;
+       overflow: hidden;
+
         &._active{
             opacity: 1;
-            transform: translateX(0);
             visibility:visible;
+            max-width: 230px;
         }
 
         @media(max-width: $md3 + px){
             position: absolute;
             left: 15px;
             right:15px;
-            width: calc(100% - 30px);
             z-index: 500;
             top:11px;
+
+            &._active{
+                max-width: calc(100% - 30px);
+            }
        }
     }
 

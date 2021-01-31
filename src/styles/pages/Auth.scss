@@ -1,69 +1,74 @@
 @import "../libs/variables";
 
-.auth{
+.auth {
     background-color: rgb(32, 28, 43);
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:0 15px;
+    height: calc(100vh - 75px);
 
-    @media(max-width: $md2 + px){
-        margin:0;
-        padding:0 25px;
-    }
-
-
-    &__form{
-        flex:0 1 450px;
+    &__form {
+        flex: 0 1 450px;
         margin: 0 15px;
         box-shadow: 0px 0px 15px 10px rgba(70, 69, 69, 0.21);
-        padding:44px 33px;
-        color:#fff;
+        padding: 44px 33px;
+        color: #fff;
 
-        @media(max-width: $md3 + px){
-            box-shadow:none;
-            margin:0;
+        @media(max-width: $md3 + px) {
+            box-shadow: none;
+            margin: 0;
         }
 
-        @media(max-width: 470px){
-            padding:0;
+        @media(max-width: 470px) {
+            padding: 20px 0;
         }
     }
 
-    &__title{
+    &__title {
         font-family: Open Sans;
         font-style: normal;
         font-weight: 600;
         font-size: 22px;
         line-height: 30px;
-        color:#fff;
+        color: #fff;
         text-align: center;
-        margin-bottom:25px;
+        margin-bottom: 25px;
 
-        @media(max-width: $md3 + px){
+        @media(max-width: $md3 + px) {
             font-size: 18px;
         }
     }
 
-    .forget-password{
+    .forget-password {
         display: block;
         text-align: right;
         margin-bottom: 10px;
     }
 
-    .signup-link{
+    .signup-link {
         display: block;
         padding-top: 20px;
         text-align: center;
     }
 
-    .signin-link{
+    .signin-link {
         text-align: center;
     }
 
     .signin-input,
-    .signup-input{
+    .signup-input {
         height: 35px;
     }
+
+    @media(max-width: $md2 + px) {
+        margin: 0;
+        padding: 65px 25px;
+    }
+
+    @media(max-width:600px) {
+        padding: 35px 25px;
+        height: calc(100vh - 60px);
+    }
+
 }

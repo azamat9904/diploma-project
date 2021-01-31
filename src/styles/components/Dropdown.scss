@@ -71,8 +71,16 @@
     &__link{
         color:#000;
     }
+    
+    
+    span.anticon{
 
-    span.anticon.rotate svg{
-        transform: rotate(-180deg);
+        svg{
+            transition: .3s transform;
+        }
+
+        &.rotate svg{
+            transform: rotate(-180deg);
+        }
     }
 }
