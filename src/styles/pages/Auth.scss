@@ -71,4 +71,7 @@
         height: calc(100vh - 60px);
     }
 
+    @media(max-height: 500px){
+        height: auto;
+    }
 }

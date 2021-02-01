@@ -47,6 +47,12 @@
         background-color: rgba(38, 35, 49, 0.74);
         ;
     }
+
+    @media(max-width:600px) {
+        padding: 35px 25px;
+        height: calc(100vh - 60px);
+    }
+
 }
 
 .content-introduction {
@@ -108,4 +114,30 @@
             width: 120px;
         }
     }
+}
+
+.courses {
+    background-color: #392E5C;
+    padding: 40px 0;
+    
+    &__title {
+        margin: 0;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 27px;
+        line-height: 32px;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 33px;
+        
+        @media(max-width:768px){
+            font-size: 24px;
+        }
+        
+        @media(max-width: 442px){
+            font-size: 19px;
+        }
+    }
+    
 }

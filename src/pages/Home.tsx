@@ -1,6 +1,16 @@
 import React from 'react';
 import "../styles/pages/Home.scss";
 import { Button } from 'antd';
+import {Card} from '../components';
+
+const element = {
+    title: "IIQ Полный курс",
+    text: " Изучите идентификацию и управление доступом, станьте разработчиком IIQ. Этот курс позволяет вам сделать первый шаг, чтобы обезопасить свое будущее с помощью одного из востребованных продуктов для кибербезопасности - IIQ, лидера на рынке Identity Management.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
+    rating: '4.7',
+    duration: '2',
+    url: 'card1'
+};
 
 const Home = () => {
     return (
@@ -19,6 +29,24 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+           
+             <section className="courses">
+                <div className="courses__container _container">
+                     <div className="courses__content">
+                         <h3 className="courses__title">Последние добавленные курсы</h3>
+                         <div className="courses__list">
+                             <Card
+                                  title={element.title} 
+                                  text={element.text}
+                                  rating={element.rating}
+                                  duration={element.duration}
+                                  image={element.image}
+                                  url={element.url}
+                              />
+                         </div>
+                     </div>
+                </div>
+             </section>
         </div>
     )
 };
