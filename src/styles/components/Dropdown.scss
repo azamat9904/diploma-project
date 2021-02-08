@@ -3,9 +3,19 @@
 .dropdown{
     $self: &;
     position: relative;
-
+    display: flex;
+    align-items: center;
+    
     @media (max-width: 395px) {
         position: static;
+    }
+
+    &.profile{
+        #{$self}__menu{
+            min-width: 180px;
+            left:auto;
+            right: 0;
+        }
     }
 
     &__title{
@@ -73,7 +83,10 @@
     }
     
     
-    span.anticon{
+    span.anticon-down{
+        font-size: 14px;
+        position: relative;
+        top: 1px;
 
         svg{
             transition: .3s transform;
@@ -81,6 +94,18 @@
 
         &.rotate svg{
             transform: rotate(-180deg);
+        }
+    }
+
+    span.anticon-user{
+        font-size: 18px;
+        position: relative;
+        top:1px;
+    }
+
+    span.text{
+        @media(max-width: 600px){
+            display: none;;
         }
     }
 }

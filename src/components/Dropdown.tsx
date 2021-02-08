@@ -7,16 +7,19 @@ import React, {
 import { DownOutlined } from '@ant-design/icons';
 import { IDropdownElement } from '../types/interfaces';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import "../styles/components/Dropdown.scss";
 
 type Props = {
-    dropdownTitle: string,
+    dropdownTitle: React.ReactNode,
     dropdownElements: IDropdownElement[],
+    className?: string
 }
 
 const Dropdown: FunctionComponent<Props> = ({
     dropdownTitle,
-    dropdownElements
+    dropdownElements,
+    className
 }) => {
 
     const dropdownRef = useRef(null);
@@ -44,18 +47,18 @@ const Dropdown: FunctionComponent<Props> = ({
     };
 
     return (
-        <div className="dropdown" ref={dropdownRef}>
+        <div className={classNames('dropdown', className)} ref={dropdownRef}>
             <span onClick={onDropdownClick} className="dropdown__title">{dropdownTitle} <DownOutlined className={classNames({ 'rotate': isOpen })} /></span>
             <ul className={classNames("dropdown__menu", { "_active": isOpen })}>
                 {
                     dropdownElements.map((element, index) => (
                         <li className="dropdown__item" key={index}>
-                            <a
-                                href={element.href}
+                            <Link
+                                to={element.href}
                                 className="dropdown__link"
                             >
                                 {element.title}
-                            </a>
+                            </Link>
                         </li>
                     ))
                 }

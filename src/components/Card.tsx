@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import "../styles/components/Card.scss";
 import { Rate } from 'antd';
 
@@ -11,7 +11,7 @@ type Props = {
     image: string
 }
 
-const Card:FC<Props> = ({
+const Card: FC<Props> = ({
     title,
     text,
     image,
@@ -22,12 +22,12 @@ const Card:FC<Props> = ({
     return (
         <div className="my-card">
             <div className="my-card__img">
-                <a href={url}><img src={image} alt=""/></a>
+                <a href={url}><img src={image} alt="" /></a>
             </div>
             <div className="my-card__body">
                 <h4><a href={url} className="my-card__title">{title}</a></h4>
                 <p className="my-card__text">
-                   {text}
+                    {text}
                 </p>
                 <div className="rating">
                     <span className="rating__value">{rating}</span>
