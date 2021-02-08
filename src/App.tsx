@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initUser } from './redux/actions/auth';
 import { TAppState } from './redux/reducers/index';
 import { Redirect } from 'react-router-dom';
+import { Logout } from './components';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,26 +21,22 @@ function App() {
     dispatch(initUser());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log(isAuthorized);
+  })
+
   return (
     <div className="wrapper">
       <Header />
       <main className="page">
-        {
-          isAuthorized ? (
-            <Switch>
-              <Route path="/" component={Home} exact />
-            
-              <Route render={() => <Redirect to="/" />} />
-            </Switch>
-          ) : (
-              <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/signin" component={Signin} />
-                <Route path="/signup" component={Signup} />
-                <Route render={() => <Redirect to="/" />} />
-              </Switch>
-            )
-        }
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/signin" component={Signin} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/home" render={() => <div>called</div>} />
+          <Route render={() => <Redirect to="/" />} />
+        </Switch>
+
       </main>
       <footer className="footer">
         <div className="footer__container _container">

@@ -74,6 +74,19 @@ const authReducer = (state = initialState, actions: actionTypes): TInitialState 
             return {
                 ...state,
                 isRegistered: false
+            };
+        case types.LOGOUT_USER:
+            return {
+                ...state,
+                isAuthorized: false,
+                isRegistered: false,
+                errors: null,
+                authenticatedInfo: {
+                    email: null,
+                    last_name: null,
+                    first_name: null,
+                    token: null
+                }
             }
         default:
             return state;

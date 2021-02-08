@@ -10,22 +10,19 @@ import { register } from '../redux/actions/auth';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { TAppState } from '../redux/reducers/index';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { actionCreators } from '../redux/actions/auth';
+import withAuthCheck from '../hoc/withAuthCheck';
 
 const Signup = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const isRegistered = useSelector((state: TAppState) => state.auth.isRegistered);
 
     useEffect(() => {
-        if (isRegistered)
-            history.push('/signin');
-
         return () => {
             dispatch(actionCreators.registerDataReset());
         }
-    }, [isRegistered]);
+    }, []);
 
     const formik = useFormik({
         initialValues: {
@@ -71,6 +68,10 @@ const Signup = () => {
             dispatch(register(values.email!, values.first_name!, values.last_name!, values.password!, setFieldError));
         }
     });
+
+    if (isRegistered) {
+        return <Redirect to="/signin" />
+    }
 
     return (
         <div className="auth">
@@ -174,4 +175,4 @@ const Signup = () => {
     )
 };
 
-export default Signup;
+export default withAuthCheck(Signup);

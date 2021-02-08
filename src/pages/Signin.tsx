@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { ILoginInfo } from '../types/interfaces';
 import { useFormik } from 'formik';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FormikErrors } from 'formik';
 import { login } from '../redux/actions/auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { TAppState } from '../redux/reducers/index';
+import { useDispatch } from 'react-redux';
+import withAuthCheck from '../hoc/withAuthCheck';
 
 const Signin = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const authInfo = useSelector((state: TAppState) => state.auth.authenticatedInfo);
-
-    useEffect(() => {
-        if (authInfo.token) history.push('/');
-    }, [authInfo.token]);
 
     const formik = useFormik({
         initialValues: {
@@ -97,4 +91,4 @@ const Signin = () => {
     )
 };
 
-export default Signin;
+export default withAuthCheck(Signin);

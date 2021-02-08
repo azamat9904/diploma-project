@@ -15,7 +15,8 @@ export enum types {
     REGISTER_STARTED = "REGISTER_STARTED",
     REGISTER_SUCCESS = "REGISTER_SUCCESS",
     REGISTER_FAILED = "REGISTER_FAILED",
-    REGISTER_DATA_RESET = "REGISTER_DATA_RESET"
+    REGISTER_DATA_RESET = "REGISTER_DATA_RESET",
+    LOGOUT_USER = "LOGOUT_USER"
 };
 
 export type actionTypes = InferActionTypes<typeof actionCreators>;
@@ -50,6 +51,9 @@ export const actionCreators = {
     registerDataReset: () => ({
         type: types.REGISTER_DATA_RESET
     } as const),
+    logoutUser: () => ({
+        type: types.LOGOUT_USER
+    } as const)
 }
 
 const saveUserInfo = (authInfo: IAuthenticatedInfo) => {
@@ -114,4 +118,9 @@ export const initUser = (): ThunkActionType => async (dispatch) => {
         dispatch(actionCreators.loginSuccess(userInfo));
         addTokenToRequest(userInfo.token);
     }
+}
+
+export const logoutUser = (): ThunkActionType => async (dispatch) => {
+    localStorage.removeItem('authInfo');
+    dispatch(actionCreators.logoutUser());
 }
